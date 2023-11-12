@@ -13,12 +13,29 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('username')->unique();
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->enum('type', ['user', 'seller', 'admin']);
+            $table->string('country');
+            $table->string('referral')->nullable();
+            $table->string('rating')->default(5);
+            $table->string('balance')->default(0);
+            $table->longText('description')->default('');
+            $table->unsignedInteger('subscribe_cost')->nullable();
+            $table->timestamp('birthday_at');
+            $table->timestamp('visited_at')->nullable();
+
+            $table->string('photo')->nullable();
+            $table->string('photo_passport')->nullable();
+            $table->string('photo_passport_selfie')->nullable();
+
+            $table->timestamp('email_verified_at')->nullable();
+            $table->timestamp('password_verified_at')->nullable();
+            $table->timestamp('password_selfie_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

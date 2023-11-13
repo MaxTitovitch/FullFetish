@@ -10,4 +10,19 @@ class HomeController extends Controller
     {
         return view('web.home.index');
     }
+
+    public function categories()
+    {
+        return '';
+    }
+
+    public function models()
+    {
+        return '';
+    }
+
+    public function faq()
+    {
+        return '';
+    }
 }

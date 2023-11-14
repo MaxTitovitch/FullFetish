@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('referral')->nullable();
             $table->string('rating')->default(5);
             $table->string('balance')->default(0);
-            $table->longText('description')->default('');
+            $table->longText('description')->nullable();
             $table->unsignedInteger('subscribe_cost')->nullable();
             $table->timestamp('birthday_at');
             $table->timestamp('visited_at')->nullable();

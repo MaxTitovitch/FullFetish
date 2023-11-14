@@ -36,6 +36,13 @@
                     </li>
                     <li class="nav-item mx-3">
                         <a
+                                class="nav-link {{ 'home.models' === Route::currentRouteName() ? 'active' : '' }}"
+                                aria-current="page"
+                                href="#"
+                        >Фото</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a
                                 class="nav-link {{ 'home.faq' === Route::currentRouteName() ? 'active' : '' }}"
                                 aria-current="page"
                                 href="#"

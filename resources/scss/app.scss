@@ -17,6 +17,10 @@ body {
   background: $customGray;
 }
 
+a {
+
+}
+
 .scroll::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   border-radius: 6px;
@@ -119,7 +123,7 @@ main {
   &.btn-lighten {
     background: $bodyColor;
     color: $customDark;
-    filter: drop-shadow(0px 4px 4px #2E2C3A);
+    filter: drop-shadow(0px 4px 4px rgba(46, 44, 58, 0.59));
 
     &:active, &:focus {
       background: darken($bodyColor, 5);
@@ -158,7 +162,7 @@ main {
 
   &.btn-300 {
     width: 300px;
-    padding: 23px;
+    padding: 16px 23px;
     font-size: 1.25rem;
   }
 }
@@ -168,13 +172,23 @@ strong {
 }
 
 .custom-link {
-  color: $darkPurple;
+  color: $white;
   text-decoration: none;
   font-weight: 700;
+  font-size: 1.4rem;
+  line-height: normal;
+
+  &.purple {
+    color: $darkPurple;
+  }
 
   &:hover {
     text-decoration: underline;
-    color: lighten($darkPurple, 5);
+    color: darken($white, 5);
+
+    &.purple {
+      color: lighten($darkPurple, 5);
+    }
   }
 }
 
@@ -197,10 +211,15 @@ strong {
     }
 
     &-front {
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position-x: center;
+      height: calc(100vh - 79px);
+
+      //position: absolute;
+      //left: 0;
+      //top: 0;
+      //height: 100%;
       width: 100%;
       color: $white;
 
@@ -210,11 +229,7 @@ strong {
 
       h1 {
         margin-top: 5%;
-        font-size: 3.2rem;
-        font-weight: 700;
-        line-height: normal;
-        text-transform: uppercase;
-        cursor: pointer;
+        text-shadow: 2px 2px 3px #0000005c;
       }
 
       .description {
@@ -223,6 +238,7 @@ strong {
         text-transform: uppercase;
         margin-top: 10%;
         margin-bottom: 10%;
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.26);
       }
     }
 
@@ -231,19 +247,46 @@ strong {
       height: 100%;
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      padding-bottom: 100px;
     }
+  }
+
+  h3 {
+    text-align: center;
+    color: $customDark;
+    font-size: 1.9rem;
+    font-weight: 800;
+    margin-bottom: 48px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.26);
+  }
+
+  h2 {
+    text-align: center;
+    color: $customDark;
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 48px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.26);
+  }
+
+  h1 {
+    margin-top: 5%;
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    cursor: pointer;
   }
 
   &__video {
     margin-top: 80px;
-    margin-bottom: 80px;
+    margin-bottom: 120px;
 
     h2 {
-      text-align: center;
       color: $customDark;
-      font-size: 2.2rem;
-      font-weight: 800;
-      margin-bottom: 48px;
     }
 
     &-content {
@@ -257,7 +300,7 @@ strong {
       position: relative;
 
       .show {
-        visibility: unset!important;
+        visibility: unset !important;
       }
 
       &-gradient {
@@ -266,17 +309,17 @@ strong {
         top: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(180deg, rgba(245, 195, 197, 0.88) 0%, rgba(245, 195, 197, 0.62) 3.86%, rgba(245, 195, 197, 0.00) 14.55%),
-        linear-gradient(0deg, #F5C3C5 0.14%, rgba(245, 195, 197, 0.62) 3.98%, rgba(245, 195, 197, 0.00) 14.61%),
-        transparent 50% / cover no-repeat;
+        //background: linear-gradient(180deg, rgba(245, 195, 197, 0.88) 0%, rgba(245, 195, 197, 0.62) 3.86%, rgba(245, 195, 197, 0.00) 14.55%),
+        //linear-gradient(0deg, #F5C3C5 0.14%, rgba(245, 195, 197, 0.62) 3.98%, rgba(245, 195, 197, 0.00) 14.61%),
+        //transparent 50% / cover no-repeat;
       }
 
       &.video {
         cursor: pointer;
 
         .home__video-preview-gradient {
-          background: linear-gradient(180deg, rgba(148, 26, 189, 0.66) 0%, rgba(148, 26, 189, 0.42) 3.86%, rgba(245, 195, 197, 0.00) 14.55%),
-          linear-gradient(0deg, rgba(148, 26, 189, 0.66), rgba(148, 26, 189, 0.42) 3.98%, rgba(245, 195, 197, 0.00) 14.61%),
+          background: linear-gradient(180deg, rgba(216, 158, 233, 0.66) 0%, rgba(216, 158, 233, 0.42) 3.86%, rgba(216, 158, 233, 0) 14.55%),
+          linear-gradient(0deg, rgba(216, 158, 233, 0.66), rgba(216, 158, 233, 0.42) 3.98%, rgba(216, 158, 233, 0) 14.61%),
           transparent 50% / cover no-repeat;
         }
 
@@ -359,15 +402,19 @@ strong {
 
     &_text {
       color: $customDark;
-      font-size: 1.4rem;
+      font-size: 1.1rem;
       font-weight: 400;
       line-height: normal;
       width: 65%;
       flex: 1;
+
+      .custom-link {
+        font-size: 1.3rem;
+      }
     }
 
     &_buttons {
-      margin-left: 120px;
+      margin-left: 140px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -378,9 +425,299 @@ strong {
       }
     }
   }
+
+  &__categories {
+    color: $white;
+    background: $darkPurple;
+    padding-top: 80px;
+    margin-bottom: 120px;
+
+    &-more {
+      margin-top: 40px;
+      padding-bottom: 80px;
+      display: flex;
+      justify-content: center;
+      text-transform: uppercase;
+    }
+
+    &-wrap {
+      overflow: hidden;
+      border-radius: 5px;
+    }
+
+    h2, h3 {
+      color: $white;
+    }
+
+    h2 {
+      margin-bottom: 50px;
+    }
+
+    h3 {
+      margin-bottom: 15px;
+    }
+
+    &-item {
+      position: relative;
+      width: calc(33.33% - 1.5px);
+      cursor: pointer;
+      color: $white;
+
+      &:hover {
+        .home__categories-item-img {
+          &:after {
+            background: linear-gradient(180deg, rgba(216, 158, 233, 0.8) 0%, rgba(216, 158, 233, 0.55) 5%, rgba(216, 158, 233, 0) 20%),
+            linear-gradient(0deg, rgba(216, 158, 233, 0.8), rgba(216, 158, 233, 0.55) 5%, rgba(216, 158, 233, 0) 20%),
+            #00000099 50% / cover no-repeat;
+            //background: linear-gradient(180deg, rgba(245, 195, 197, 0.8) 0%, rgba(245, 195, 197, 0.55) 5%, rgba(245, 195, 197, 0.00) 20%),
+            //linear-gradient(0deg, rgba(245, 195, 197, 0.8), rgba(245, 195, 197, 0.55) 5%, rgba(245, 195, 197, 0.00) 20%),
+            //#00000099 50% / cover no-repeat;
+            //background: linear-gradient(180deg, rgba(148, 26, 189, 0.8) 0%, rgba(148, 26, 189, 0.55) 5%, rgba(148, 26, 189, 0) 20%),
+            //linear-gradient(0deg, rgba(148, 26, 189, 0.8), rgba(148, 26, 189, 0.55) 5%, rgba(148, 26, 189, 0) 20%),
+            //#00000099 50% / cover no-repeat;
+          }
+        }
+      }
+
+      &-img  {
+        position: relative;
+        display: flex;
+        margin-bottom: 2.5px;
+        border-radius: 5px;
+        overflow: hidden;
+
+        &:after {
+          content: "";
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: #00000066;
+          opacity: 0.8;
+        }
+      }
+
+      &:hover {
+        color: $white;
+      }
+
+      &-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+
+        &>div {
+          width: 100%;
+          height: 100%;
+
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  &__models {
+    h2 {
+      font-size: 2.8rem;
+    }
+
+    &-link {
+      border-radius: 10px;
+      overflow: hidden;
+      display: block;
+      position: relative;
+
+
+
+      &-img {
+        width: 100%;
+
+        &:after {
+          content: "";
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: #00000088;
+          opacity: 0.8;
+        }
+
+        img {
+          width: 100%;
+        }
+      }
+
+      &-body {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        h2 {
+          color: $white;
+          margin-bottom: 25px;
+          font-size: 2.8rem;
+        }
+
+        h3 {
+          color: $white;
+          margin-bottom: 25px;
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
 }
 
+.footer {
+  margin-top: 120px;
+  color: $customDark;
+  background-color: $lightPurple;
+  padding-top: 60px;
+  padding-bottom: 15px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: normal;
 
+  &__logo {
+    width: 100%;
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: .8rem;
+
+    a {
+      width: 50%;
+    }
+  }
+
+  &__copyright {
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+
+    &-head {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    &-link {
+      font-size: 1.1rem;
+      color: $customDark;
+      text-decoration: none;
+      margin-bottom: 4px;
+
+      &:hover {
+        text-decoration: underline;
+        color: $darkPurple;
+      }
+    }
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    &-social {
+      display: flex;
+      margin-top: 10px;
+
+      .social {
+        margin-right: 20px;
+      }
+    }
+
+    &-email {
+      font-size: 1.1rem;
+      color: $customDark;
+      text-decoration: none;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+
+      &:hover {
+        color: $darkPurple;
+        text-decoration: underline;
+      }
+
+      i {
+        font-size: 1.5rem;
+        margin-right: 10px;
+      }
+    }
+
+    &-address {
+      font-size: 1.1rem;
+      color: $customDark;
+      text-decoration: none;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+
+      i {
+        font-size: 1.5rem;
+        margin-right: 10px;
+      }
+    }
+
+  }
+}
+
+.social {
+  font-size: 1.5rem;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background:  $customDark;
+  color: $white;
+  border: 2px solid transparent;
+
+  &:hover {
+    background: $darkPurple;
+    color: $white;
+  }
+}
 
 
 

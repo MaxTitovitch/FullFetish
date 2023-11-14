@@ -141,8 +141,8 @@ main {
     filter: none;
 
     &:hover {
-      color: darken($customDark, 10);
-      text-decoration: underline;
+      color: $darkPurple;
+      //text-decoration: underline;
     }
   }
 

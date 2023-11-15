@@ -1,5 +1,15 @@
 @import 'node_modules/reset-css/sass/reset';
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.collapse {
+  visibility: visible!important;
+}
+
+
+
 $lightPurple: #ECE7F6;
 $purple: #D89EE9;
 $darkPurple: #941ABD;

@@ -9,7 +9,7 @@
         <div class="home__head">
 {{--            <img class="home__head-back" src="{{ asset('/img/back-foot.svg') }}" alt="{{ config('app.name') }}">--}}
             <div class="home__head-front" style="background-image: url('{{ asset('/img/back-foot-shadow.svg') }}')">
-                <div class="container">
+                <div class="container-md">
                     <div class="home__head-flex">
                         <div>
                             <h1>Продавай и покупай фото ног:<br> фото, видео <br>и многое другое!</h1>
@@ -18,14 +18,14 @@
                             ПРИСОЕДИНЯЙТЕСЬ К 1000 УЧАСТНИКОВ, ПОКУПАЮЩИХ И ПРОДАЮЩИХ ФОТО И ВИДЕО НОГ
                         </div>
                         <div>
-                            <a class="btn btn-primary btn-custom btn-inverse btn-250" href="#">Присоединиться</a>
+                            <a class="btn btn-primary btn-custom btn-inverse btn-250" href="{{ route('register') }}">Присоединиться</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="home__video container">
+        <div class="home__video container-md">
             <h2>КАК ЭТО РАБОТАЕТ?</h2>
             <div class="home__video-content">
                 <div class="home__video-preview">
@@ -61,14 +61,14 @@
                     </strong>
                 </div>
                 <div class="home__video_buttons">
-                    <a class="btn btn-primary btn-custom btn-300" href="#">Продавать контент</a>
-                    <a class="btn btn-primary btn-custom btn-lighten btn-300" href="#">Смотреть контент</a>
+                    <a class="btn btn-primary btn-custom btn-300" href="{{ route('register', ['type' => 'seller']) }}">Продавать контент</a>
+                    <a class="btn btn-primary btn-custom btn-lighten btn-300" href="{{ route('register') }}">Смотреть контент</a>
                 </div>
             </div>
         </div>
 
         <div class="home__categories">
-            <div class="container">
+            <div class="container-md">
                 <h2>Популярные категории</h2>
                 <div class="home__categories-wrap"  data-masonry='{"percentPosition": true, "gutter": 2 }'>
                     @foreach ($categories as $category)
@@ -94,7 +94,7 @@
             </div>
         </div>
 
-        <div class="home__models container">
+        <div class="home__models container-md">
             <h2>Наши Модели</h2>
             <div class="home__models-link">
                 <div class="home__models-link-img">

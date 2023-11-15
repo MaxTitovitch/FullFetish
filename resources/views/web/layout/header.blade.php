@@ -1,6 +1,6 @@
 <header class="header">
     <nav class="navbar fixed-top navbar-expand-lg light">
-        <div class="container">
+        <div class="container-md">
             <a class="navbar-brand py-0" href="/">
                 <img
                         class="header__logo"
@@ -50,8 +50,8 @@
                     </li>
                 </ul>
                 <div class="d-flex">
-                    <a class="btn btn-primary btn-custom btn-180" href="#">Регистрация</a>
-                    <a class="btn btn-link btn-custom btn-130" href="#">Вход</a>
+                    <a class="btn btn-primary btn-custom btn-180" href="{{ route('register') }}">Регистрация</a>
+                    <a class="btn btn-link btn-custom btn-130" href="{{ route('login') }}">Вход</a>
                 </div>
             </div>
         </div>

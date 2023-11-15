@@ -1,5 +1,5 @@
 <footer class="footer">
-    <div class="container">
+    <div class="container-md">
         <div class="row">
             <div class="col-12 col-md-3 footer__main">
                 <a class="py-0" href="/">

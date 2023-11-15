@@ -1,6 +1,12 @@
-<x-guest-layout>
+@extends('web.layout.auth')
+
+@section('title')
+    <title>Сброс пароля — {{ config('app.name') }}</title>
+@endsection
+
+@section('layout-content')
     <div class="mb-4 text-sm text-gray-600">
-        {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
+        Пожалуйста, подтвердите свой пароль, прежде чем продолжить
     </div>
 
     <form method="POST" action="{{ route('password.confirm') }}">
@@ -8,7 +14,7 @@
 
         <!-- Password -->
         <div>
-            <x-input-label for="password" :value="__('Password')" />
+            <x-input-label for="password" :value="'Пароль'" />
 
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
@@ -20,8 +26,9 @@
 
         <div class="flex justify-end mt-4">
             <x-primary-button>
-                {{ __('Confirm') }}
+                Подтвердить
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+
+@endsection

@@ -1,11 +1,17 @@
-<x-guest-layout>
+@extends('web.layout.auth')
+
+@section('title')
+    <title>Подтверждение электронной почты — {{ config('app.name') }}</title>
+@endsection
+
+@section('layout-content')
     <div class="mb-4 text-sm text-gray-600">
-        {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
+        {{ __('Спасибо за регистрацию! Прежде чем начать, не могли бы вы подтвердить свой адрес электронной почты, нажав на ссылку, которую мы только что отправили вам по электронной почте? Если вы не получили письмо, мы отправим вам его снова') }}
     </div>
 
     @if (session('status') == 'verification-link-sent')
         <div class="mb-4 font-medium text-sm text-green-600">
-            {{ __('A new verification link has been sent to the email address you provided during registration.') }}
+            {{ __('Новая ссылка для подтверждения была отправлена на адрес электронной почты, который вы указали при регистрации') }}
         </div>
     @endif
 
@@ -15,7 +21,7 @@
 
             <div>
                 <x-primary-button>
-                    {{ __('Resend Verification Email') }}
+                    Выслать повторно письмо для подтверждения
                 </x-primary-button>
             </div>
         </form>
@@ -24,8 +30,8 @@
             @csrf
 
             <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                {{ __('Log Out') }}
+                Выйти
             </button>
         </form>
     </div>
-</x-guest-layout>
+@endsection

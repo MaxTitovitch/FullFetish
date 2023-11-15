@@ -164,6 +164,12 @@ main {
     width: 130px;
   }
 
+  &.short {
+    width: auto;
+    font-size: .9rem;
+    padding: 8px 24px;
+  }
+
   &.btn-250 {
     width: 250px;
     padding: 18px;
@@ -188,8 +194,17 @@ strong {
   font-size: 1.4rem;
   line-height: normal;
 
+  &.small {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
   &.purple {
     color: $darkPurple;
+  }
+
+  &.dark-style {
+    color: $customDark;
   }
 
   &:hover {
@@ -197,6 +212,10 @@ strong {
     color: darken($white, 5);
 
     &.purple {
+      color: lighten($darkPurple, 5);
+    }
+
+    &.dark-style {
       color: lighten($darkPurple, 5);
     }
   }
@@ -538,6 +557,8 @@ strong {
   }
 
   &__models {
+    padding-bottom: 120px;
+
     h2 {
       font-size: 2.8rem;
     }
@@ -598,7 +619,6 @@ strong {
 }
 
 .footer {
-  margin-top: 120px;
   color: $customDark;
   background-color: $lightPurple;
   padding-top: 60px;
@@ -729,10 +749,54 @@ strong {
   }
 }
 
+.auth {
+  min-height: calc(100vh - 79px);
+  padding-top: 20px;
+  padding-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 
+  &__login {
+  }
 
+  &__register {
+  }
 
+  &__logo {
+    width: 150px;
+  }
+}
 
+.app {
+  &__input {
+
+    &:focus {
+      border-color: $darkPurple;
+    }
+  }
+
+  &__checkbox {
+    color: $darkPurple;
+  }
+}
+
+.custom-tabs {
+
+  .custom-tab {
+    width: 50%;
+    padding: 12px;
+    color: $customDark!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.active {
+      background: $darkPurple;
+      color: $white !important;
+    }
+  }
+}
 
 
 

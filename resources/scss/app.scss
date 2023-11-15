@@ -781,9 +781,9 @@ strong {
 }
 
 .profile {
-  min-height: calc(100vh - 79px - 244px);
+  min-height: calc(100vh - 79px);
   padding-top: 20px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 
 
@@ -817,7 +817,59 @@ strong {
   }
 }
 
+.profile {
 
+  &__side {
+    height: 100%;
+  }
+
+  &__img {
+    width: 30px;
+  }
+
+  &__list {
+    &
+
+    .list-group-item {
+      padding: 0;
+
+      &:hover {
+        background: $lightPurple;
+      }
+
+      &.head {
+        a {
+          font-size: 1rem;
+          justify-content: center;
+          text-transform: uppercase;
+        }
+      }
+
+      a {
+        color: $customDark;
+        font-weight: 600;
+        padding: 10px 10px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        &:hover {
+          color: $darkPurple;
+        }
+
+        &.active {
+          color: $darkPurple;
+        }
+
+        :not(:last-child) {
+          display: inline-block;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}
 
 
 

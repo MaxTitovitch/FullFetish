@@ -70,7 +70,7 @@ a {
   .nav-link {
     color: $customDark;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -88,10 +88,10 @@ a {
 }
 
 main {
-  margin-top: 59px;
+  margin-top: 56px;
 
   @media (min-width: 992px) {
-    margin-top: 79px;
+    margin-top: 76px;
   }
 }
 
@@ -623,7 +623,7 @@ strong {
   background-color: $lightPurple;
   padding-top: 60px;
   padding-bottom: 15px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 400;
   line-height: normal;
 
@@ -646,7 +646,7 @@ strong {
     width: 100%;
     text-align: center;
     margin-top: 15px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
   }
 
@@ -660,13 +660,13 @@ strong {
     flex-direction: column;
 
     &-head {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 600;
       margin-bottom: 10px;
     }
 
     &-link {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: $customDark;
       text-decoration: none;
       margin-bottom: 4px;
@@ -693,7 +693,7 @@ strong {
     }
 
     &-email {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: $customDark;
       text-decoration: none;
       margin-bottom: 4px;
@@ -707,13 +707,13 @@ strong {
       }
 
       i {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         margin-right: 10px;
       }
     }
 
     &-address {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: $customDark;
       text-decoration: none;
       margin-bottom: 4px;
@@ -722,11 +722,23 @@ strong {
       font-weight: 600;
 
       i {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         margin-right: 10px;
       }
     }
 
+  }
+}
+
+.custom-dropdown {
+  .dropdown-item {
+    &:hover {
+      background: $lightPurple;
+    }
+    &:active {
+      color: $white;
+      background: $darkPurple;
+    }
   }
 }
 
@@ -767,6 +779,13 @@ strong {
     width: 150px;
   }
 }
+
+.profile {
+  min-height: calc(100vh - 79px - 244px);
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
 
 .app {
   &__input {

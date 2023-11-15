@@ -1,3 +1,8 @@
+@php
+
+$user = \Illuminate\Support\Facades\Auth::user()
+@endphp
+
 <header class="header">
     <nav class="navbar fixed-top navbar-expand-lg light">
         <div class="container-md">
@@ -50,8 +55,35 @@
                     </li>
                 </ul>
                 <div class="d-flex">
+                    @if (!$user)
                     <a class="btn btn-primary btn-custom btn-180" href="{{ route('register') }}">Регистрация</a>
                     <a class="btn btn-link btn-custom btn-130" href="{{ route('login') }}">Вход</a>
+                    @else
+                        <div class="custom-dropdown dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-circle"></i> Профиль
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li class="text-center bold">{{ $user->username }}</li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{{ route('dashboard') }}">Панель управления</a></li>
+                                <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Профиль</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <a
+                                                class="dropdown-item"
+                                                href="{{ route('logout') }}"
+                                                onclick="event.preventDefault(); this.closest('form').submit();"
+                                        >Выход</a>
+                                    </form>
+{{--                                    <a class="dropdown-item" href="#">Выход</a>--}}
+
+                                </li>
+                            </ul>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

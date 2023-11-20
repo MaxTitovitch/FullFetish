@@ -12,11 +12,13 @@
                 <div class="container-md">
                     <div class="home__head-flex">
                         <div>
-                            <h1>Продавай и покупай фото ног:<br> фото, видео <br>и многое другое!</h1>
+                            <h1>Смотри, выкладывай и монетизируй контент</h1>
                         </div>
-                        <div class="description">
-                            ПРИСОЕДИНЯЙТЕСЬ К 1000 УЧАСТНИКОВ, ПОКУПАЮЩИХ И ПРОДАЮЩИХ ФОТО И ВИДЕО НОГ
-                        </div>
+                        <ul class="description">
+                            <li>FullFetish – это крупнейшая платформа по поиску фото и видео на любые фетиш-тематики</li>
+                            <li>Множество моделей и категорий на любой вкус</li>
+                            <li>Смотри контент полностью анонимно и безопасно</li>
+                        </ul>
                         <div>
                             <a class="btn btn-primary btn-custom btn-inverse btn-250" href="{{ route('register') }}">Присоединиться</a>
                         </div>
@@ -40,29 +42,71 @@
             </div>
             <div class="home__video_desc">
                 <div class="home__video_text">
-                    <strong>
-                        FeetFinder title
-                    </strong>
-                    <br>
-                    <br>
-                    FeetFinder is the safest, largest, and easiest website to view,
-                    buy and sell feet content. With millions of users and over 5,000 five-star reviews,
-                    FeetFinder is the best website for anyone interested in buying or selling feet content.
-                    <br>
-                    <br>
-                    FeetFinder is the safest, largest, and easiest website to view,
-                    buy and sell feet content. With millions of users and over 5,000 five-star reviews,
-                    FeetFinder is the best website for anyone interested in buying or selling feet content.
-
-                    <br>
-                    <br>
-                    <strong>
-                        Остались вопросы? Посмотрите наш подробный <a href="#" class="custom-link purple">FAQ</a>
-                    </strong>
+                    <div>
+                        <strong>
+                            FULLFETISH БЕЗОПАСЕН?
+                        </strong>
+                    </div>
+                    <div class="mt-3">
+                        FULLFETISH – это полностью безопасная и защищенная платформа для размещения контента на тему
+                        фетишей и различных сексуальных предпочтений. Мы придерживаемся философии отказа от порно,
+                        а весь контент, размещенный на сайте носит эстетический характер с элементами эротики.
+                    </div>
+                    <div class="mt-5">
+                        <strong>
+                            Остались вопросы? <a href="#" class="custom-link purple">ОТВЕТЫ НАЙДЕТЕ ТУТ</a>
+                        </strong>
+                    </div>
                 </div>
-                <div class="home__video_buttons">
-                    <a class="btn btn-primary btn-custom btn-300" href="{{ route('register', ['type' => 'seller']) }}">Продавать контент</a>
-                    <a class="btn btn-primary btn-custom btn-lighten btn-300" href="{{ route('register') }}">Смотреть контент</a>
+                <div class="home__video_buttons container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-6 home__video_buttons-item">
+                            <div class="home__video_buttons-item-img" style="background-image: url('{{ asset('/img/auth-back3-1.png') }}')">
+                                <div>
+                                    <div class="home-head">
+                                        <h3>ПРОДАТЬ КОНТЕНТ</h3>
+                                    </div>
+                                    <ul class="home-list">
+                                        <li>
+                                            Полностью анонимно и безопасно
+                                        </li>
+                                        <li>
+                                            Зарабатывайте, продавая свои фото и видео
+                                        </li>
+                                        <li>
+                                            Станьте звездой своего жанра
+                                        </li>
+                                    </ul>
+                                    <a class="btn btn-primary btn-custom btn-300" href="{{ route('register', ['type' => 'seller']) }}">
+                                        Продавать
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 home__video_buttons-item">
+                            <div class="home__video_buttons-item-img" style="background-image: url('{{ asset('/img/auth-back3-2.png') }}')">
+                                <div>
+                                    <div class="home-head">
+                                        <h3>СМОТРЕТЬ КОНТЕНТ</h3>
+                                    </div>
+                                    <ul class="home-list">
+                                        <li>
+                                            Множество фильтров для поиска контента
+                                        </li>
+                                        <li>
+                                            Тысячи моделей, фото и видео на любой вкус
+                                        </li>
+                                        <li>
+                                            Эксклюзивный контент только для Вас
+                                        </li>
+                                    </ul>
+                                    <a class="btn btn-primary btn-custom btn-lighten btn-300" href="{{ route('register') }}">
+                                        Смотреть
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

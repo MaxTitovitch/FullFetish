@@ -7,153 +7,192 @@
 @section('content')
     <div class="home">
         <div class="home__head">
-{{--            <img class="home__head-back" src="{{ asset('/img/back-foot.svg') }}" alt="{{ config('app.name') }}">--}}
-            <div class="home__head-front" style="background-image: url('{{ asset('/img/back-foot-shadow.svg') }}')">
-                <div class="container-md">
+            <div class="container d-flex pb-3">
+                <div class="home__head-front">
                     <div class="home__head-flex">
                         <div>
-                            <h1>Смотри, выкладывай и монетизируй контент</h1>
+                            <h1>Покупка и продажа эротических фото</h1>
                         </div>
-                        <ul class="description">
-                            <li>FullFetish – это крупнейшая платформа по поиску фото и видео на любые фетиш-тематики</li>
-                            <li>Множество моделей и категорий на любой вкус</li>
-                            <li>Смотри контент полностью анонимно и безопасно</li>
-                        </ul>
-                        <div>
-                            <a class="btn btn-primary btn-custom btn-inverse btn-250" href="{{ route('register') }}">Присоединиться</a>
+                        <div class="description">
+                            FullFetish - самый безопасный, крупный и удобный веб-сайт для просмотра, покупки и продажи
+                            эротического контента.
+                        </div>
+                        <div class="d-flex">
+                            <a class="btn btn-custom btn-opacity me-3" href="{{ route('register') }}">Купить</a>
+                            <a class="btn btn-custom btn-white"
+                               href="{{ route('register', ['type' => 'seller']) }}">Продать</a>
                         </div>
                     </div>
                 </div>
+                <div class="home__head-photos">
+                    <div class="home__head-photos-left">
+                        <img src="{{ asset('/img/main-photo-left.png') }}" alt="{{ config('app.name') }}">
+                    </div>
+                    <div class="home__head-photos-center">
+                        <img src="{{ asset('/img/main-photo-center.png') }}" alt="{{ config('app.name') }}">
+                    </div>
+                    <div class="home__head-photos-right">
+                        <img src="{{ asset('/img/main-photo-right.png') }}" alt="{{ config('app.name') }}">
+                    </div>
+                </div>
+                <div class="home__head-back"></div>
             </div>
+            <div class="filter filter-left"></div>
         </div>
 
-        <div class="home__video container-md">
-            <h2>КАК ЭТО РАБОТАЕТ?</h2>
-            <div class="home__video-content">
-                <div class="home__video-preview">
-                    <img id="videoPreview" class="show" src="{{ asset('/img/preview.png') }}" alt="{{ config('app.name') }}">
-                    <video id="videoContent" src="{{ asset('/video/video.mp4') }}" loop></video>
-                    <div class="home__video-preview-gradient"></div>
-                    <div class="button show" id="videoButton">
-                        <img src="{{ asset('/img/play.svg') }}" alt="Play">
-                        <img src="{{ asset('/img/pause.svg') }}" alt="Play">
-                    </div>
-                </div>
-            </div>
-            <div class="home__video_desc">
-                <div class="home__video_text">
-                    <div>
-                        <strong>
-                            FULLFETISH БЕЗОПАСЕН?
-                        </strong>
-                    </div>
-                    <div class="mt-3">
-                        FULLFETISH – это полностью безопасная и защищенная платформа для размещения контента на тему
-                        фетишей и различных сексуальных предпочтений. Мы придерживаемся философии отказа от порно,
-                        а весь контент, размещенный на сайте носит эстетический характер с элементами эротики.
-                    </div>
-                    <div class="mt-5">
-                        <strong>
-                            Остались вопросы? <a href="#" class="custom-link purple">ОТВЕТЫ НАЙДЕТЕ ТУТ</a>
-                        </strong>
-                    </div>
-                </div>
-                <div class="home__video_buttons container-fluid">
-                    <div class="row">
-                        <div class="col-12 col-md-6 home__video_buttons-item">
-                            <div class="home__video_buttons-item-img" style="background-image: url('{{ asset('/img/auth-back3-1.png') }}')">
-                                <div>
-                                    <div class="home-head">
-                                        <h3>ПРОДАТЬ КОНТЕНТ</h3>
-                                    </div>
-                                    <ul class="home-list">
-                                        <li>
-                                            Полностью анонимно и безопасно
-                                        </li>
-                                        <li>
-                                            Зарабатывайте, продавая свои фото и видео
-                                        </li>
-                                        <li>
-                                            Станьте звездой своего жанра
-                                        </li>
-                                    </ul>
-                                    <a class="btn btn-primary btn-custom btn-300" href="{{ route('register', ['type' => 'seller']) }}">
-                                        Продавать
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 home__video_buttons-item">
-                            <div class="home__video_buttons-item-img" style="background-image: url('{{ asset('/img/auth-back3-2.png') }}')">
-                                <div>
-                                    <div class="home-head">
-                                        <h3>СМОТРЕТЬ КОНТЕНТ</h3>
-                                    </div>
-                                    <ul class="home-list">
-                                        <li>
-                                            Множество фильтров для поиска контента
-                                        </li>
-                                        <li>
-                                            Тысячи моделей, фото и видео на любой вкус
-                                        </li>
-                                        <li>
-                                            Эксклюзивный контент только для Вас
-                                        </li>
-                                    </ul>
-                                    <a class="btn btn-primary btn-custom btn-lighten btn-300" href="{{ route('register') }}">
-                                        Смотреть
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="home__categories">
-            <div class="container-md">
-                <h2>Популярные категории</h2>
-                <div class="home__categories-wrap"  data-masonry='{"percentPosition": true, "gutter": 2 }'>
-                    @foreach ($categories as $category)
-                        <a href="#" class="home__categories-item">
-                            <div class="home__categories-item-img">
-                                <img src="{{ asset($category->photo) }}" alt="{{ $category->title }}">
+        <div class="home__models">
+            <div class="container home__models-body">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Модели</h2>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-between w-100">
+                    @foreach ($models as $model)
+                        <a href="#" class="home__models-item">
+                            <div class="home__models-item-img">
+                                <img src="{{ asset($model->photo) }}" alt="{{ $model->username }}">
                             </div>
-                            <div class="home__categories-item-container">
-                                <div>
-                                    <h3>{{ $category->title }}</h3>
-                                    <div>
-                                        {{ $category->contents_count }}
-                                        {{ trans_choice('публикация|публикации|публикаций', $category->contents_count) }}
-                                    </div>
-                                </div>
+                            <div class="home__models-item-container">
+                                {{ $model->username }}
                             </div>
                         </a>
                     @endforeach
-                </div>
-                <div class="home__categories-more">
-                    <a class="btn btn-primary btn-custom btn-inverse btn-250" href="#">Все категории</a>
+
+                    <a href="#" class="home__models-link">
+                        <img src="{{ asset('/img/icon/plus.svg') }}" alt="Plus">
+                        <span>Все модели</span>
+                    </a>
                 </div>
             </div>
         </div>
 
-        <div class="home__models container-md">
-            <h2>Наши Модели</h2>
-            <div class="home__models-link">
-                <div class="home__models-link-img">
-                    <img src="{{ asset('/img/collage.png') }}" alt="Collage">
+        <div class="home__models">
+            <div class="container home__models-body opacity">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Категории</h2>
+                    </div>
                 </div>
-                <div class="home__models-link-body">
-                    <h2>Модели</h2>
-                    <h3>Просматривайте контент тысяч верифицированных моделей</h3>
-                    <a class="btn btn-primary btn-custom btn-inverse btn-250" href="#">Все модели</a>
+                <div class="row d-flex justify-content-between w-100">
+                    @foreach ($categories as $category)
+                        <a href="#" class="home__models-item">
+                            <div class="home__models-item-img">
+                                <img src="{{ asset($category->photo) }}" alt="{{ $category->title }}">
+                            </div>
+                            <div class="home__models-item-container">
+                                {{ $category->title }}
+                            </div>
+                        </a>
+                    @endforeach
+
+                    <a href="#" class="home__models-link">
+                        <img src="{{ asset('/img/icon/plus.svg') }}" alt="Plus">
+                        <span>Все категории</span>
+                    </a>
                 </div>
+            </div>
+        </div>
+
+        <div class="home__models">
+            <div class="container home__models-body opacity pt-5">
+                <div class="row mt-4">
+                    <div class="col-12 col-md-6">
+                        <div class="home__models-place">
+                            <div class="home__models-place-border">
+                                <div>
+                                    <img src="{{ asset('/img/main-sell.png') }}" alt="{{ config('app.name') }}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 home__models-li">
+                        <h2>Продать контент</h2>
+                        <ul>
+                            <li><img src="{{ asset('/img/icon/ok.svg') }}" alt="Plus"> Зарабатывайте, продавая свои фото и видео</li>
+                            <li><img src="{{ asset('/img/icon/ok.svg') }}" alt="Plus"> Полностью анонимно и безопасно</li>
+                            <li><img src="{{ asset('/img/icon/ok.svg') }}" alt="Plus"> Станьте звездой своего жанра</li>
+                        </ul>
+                        <a class="btn btn-custom btn-black"
+                           href="{{ route('register', ['type' => 'seller']) }}">Продать</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="home__models">
+            <div class="container home__models-body opacity reverse pt-5">
+                <div class="row mt-4">
+                    <div class="col-12 col-md-6">
+                        <div class="home__models-place many">
+                            <div class="home__models-place-borders">
+                                <div>
+                                    <img src="{{ asset('/img/main-buy-1.png') }}" alt="{{ config('app.name') }}">
+                                </div>
+                                <div>
+                                    <img src="{{ asset('/img/main-buy-2.png') }}" alt="{{ config('app.name') }}">
+                                </div>
+                                <div class="no-bottom">
+                                    <img src="{{ asset('/img/main-buy-3.png') }}" alt="{{ config('app.name') }}">
+                                </div>
+                                <div class="no-bottom">
+                                    <img src="{{ asset('/img/main-buy-4.png') }}" alt="{{ config('app.name') }}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 home__models-li">
+                        <h2>Смотреть контент</h2>
+                        <ul>
+                            <li><img src="{{ asset('/img/icon/ok.svg') }}" alt="Plus"> Тысячи моделей, фото и видео на любой вкус</li>
+                            <li><img src="{{ asset('/img/icon/ok.svg') }}" alt="Plus"> Множество фильтров для поиска контента</li>
+                            <li><img src="{{ asset('/img/icon/ok.svg') }}" alt="Plus"> Эксклюзивный контент только для Вас</li>
+                        </ul>
+                        <a class="btn btn-custom btn-black"
+                           href="{{ route('register') }}">Смотреть</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="home__security container">
+            <h2>Безопасное и надежное место для торговли контентом </h2>
+            <div class="text">
+                Full Fetish - это надежный и безопасный онлайн-ресурс для тех, кто хочет приобрести или предложить контент,
+                связанный с ногами. Зашифрованные серверы, соблюдение стандартов безопасности PCI и защита от внешних угроз.
+            </div>
+            <div class="d-flex justify-center gap-3">
+                <a class="btn btn-custom me-2" href="{{ route('register', ['type' => 'seller']) }}">Продать</a>
+                <a class="btn btn-custom btn-opacity" href="{{ route('register') }}">Купить</a>
+            </div>
+            <div class="filter"></div>
+        </div>
+
+        <div class="home__faq container">
+            <div class="accordion" id="accordionFaq">
+                @foreach ($faqs as $key => $faq)
+                    <div class="accordion-item {{ $key === 0 ? 'active' : '' }}">
+                        <h3 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{$key}}" aria-expanded="true" aria-controls="collapseOne">
+                                <span>{{ $faq->question }}</span>
+                            </button>
+                        </h3>
+                        <div id="collapse-{{$key}}" class="accordion-collapse collapse {{ $key === 0 ? 'show' : '' }}" aria-labelledby="headingOne" data-bs-parent="#accordionFaq">
+                            <div class="accordion-body">
+                                {!! $faq->answer !!}
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
 @endsection
 
 @section('script')
-    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+            integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"
+            async></script>
 @endsection

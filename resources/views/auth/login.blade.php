@@ -5,50 +5,74 @@
 @endsection
 
 @section('layout-content')
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
 
-        <form method="POST" action="{{ route('login') }}" class="auth__login">
+        <h1 class="mb-4">Вход</h1>
+
+        @if(session('status'))
+            <span class="text-success fw-bold mb-4 mb-4">{{ session('status') }}</span>
+        @endif
+
+        <form method="POST" action="{{ route('login') }}" class="auth__form">
             @csrf
 
-            <!-- Email Address -->
-            <div>
-                <x-input-label for="email" :value="'Email или Логин'" />
-                <x-text-input id="email" class="block mt-1 w-full" name="email" :value="old('email')" required autofocus autocomplete="username" />
-                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            <div class="form-group mb-4">
+                <label for="email" class="mb-2">Имя пользователя или Email</label>
+                <input type="text" class="form-control" name="email" id="email" value="{{ old('email')}}" required autofocus autocomplete="username">
+
+                @if($errors->get('email')[0] ?? false)
+                    <div id="emailHelp" class="form-text text-danger mt-2">{{ $errors->get('email')[0] ?? '' }}</div>
+                @endif
             </div>
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-input-label for="password" :value="'Пароль'" />
+            <div class="form-group mb-4">
+                <div class="password-changer">
+                    <label for="password" class="mb-2">Пароль</label>
+                    <div class="password-changer-button" data-id="password">
+                        <div class="to-hide">
+                            <i class="bi bi-eye-slash-fill"></i>
+                            <span>Скрыть</span>
+                        </div>
+                        <div class="to-show">
+                            <i class="bi bi-eye-fill"></i>
+                            <span>Показать</span>
+                        </div>
+                    </div>
+                </div>
+                <input type="password" class="form-control" name="password" id="password" value="{{ old('password')}}" required autofocus autocomplete="password">
 
-                <x-text-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
-
-                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                @if($errors->get('password')[0] ?? false)
+                    <div id="passwordHelp" class="form-text text-danger mt-2">{{ $errors->get('password')[0] ?? '' }}</div>
+                @endif
             </div>
 
             <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" checked type="checkbox" class="app__checkbox rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                    <span class="ms-2 text-sm text-gray-600">Запомнить</span>
-                </label>
+{{--            <div class="block mt-4">--}}
+{{--                <label for="remember_me" class="inline-flex items-center">--}}
+{{--                    <input id="remember_me" checked type="checkbox" class="app__checkbox rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">--}}
+{{--                    <span class="ms-2 text-sm text-gray-600">Запомнить</span>--}}
+{{--                </label>--}}
+{{--            </div>--}}
+
+            <div class="flex items-center justify-end mb-4">
+                <button class="btn btn-custom btn-black no-border" type="submit">Войти</button>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="custom-link dark-style small" href="{{ route('password.request') }}">
+
+            @if (Route::has('password.request'))
+                <div class=" mb-4">
+                    <a class="small" href="{{ route('password.request') }}">
                         Забыли пароль?
                     </a>
-                @endif
-
-                <x-primary-button class="ms-3">
-                    Войти
-                </x-primary-button>
-            </div>
+                </div>
+                <div class=" mb-4">
+                    <span>
+                        У вас Еще нет аккаунта?
+                    </span>
+                    <a class="small" href="{{ route('register') }}">
+                        Зарегистрироваться
+                    </a>
+                </div>
+            @endif
         </form>
 @endsection
 

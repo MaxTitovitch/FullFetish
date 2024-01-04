@@ -1,39 +1,58 @@
 @extends('web.layout.layout')
 
 @section('content')
-    <div class="container-md">
+    <div class="container">
         <div class="row">
-            <div class="col-3 py-3">
-                <div class="profile__side bg-white shadow sm:rounded-lg">
-                    <ul class="profile__list list-group">
-                        <li class="list-group-item head">
-                            <a href="{{ route('dashboard') }}" class="{{ 'dashboard' === Route::currentRouteName() ? 'active' : ''}}">
-                                <img
-                                        class="profile__img"
-                                        src="{{ asset('/img/logo.png') }}"
-                                        alt="{{ config('app.name') }}"
-                                >
-                                <span>
-                                Панель управления
-                            </span>
-                            </a>
-                        </li>
-                        <li class="list-group-item"><a href="#"><i class="bi bi-image"></i> <span>Контент</span></a></li>
-                        <li class="list-group-item"><a href="#"><i class="bi bi-currency-dollar"></i> <span>Подписки</span></a></li>
-                        <li class="list-group-item"><a href="#"><i class="bi bi-bag-fill"></i> <span>Покупки</span></a></li>
-                        <li class="list-group-item"><a href="#"><i class="bi bi-chat-dots-fill"></i> <span>Чаты</span></a></li>
-                        <li class="list-group-item">
-                            <a
+            <div class="col-12">
+                <div class="profile">
+                    <div class="profile__head">
+                        <h1>Личный кабинет</h1>
+                        <ul class="profile__head-list">
+                            <li>
+                                <a
+                                    class="{{ 'profile.edit' === Route::currentRouteName() ? 'active' : '' }}"
                                     href="{{ route('profile.edit') }}"
-                                    class="{{ 'profile.edit' === Route::currentRouteName() ? 'active' : ''}}"
-                            ><i class="bi bi-person-circle"></i> <span>Профиль</span></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-9">
-                <div class="profile font-sans text-gray-900 antialiased">
-                    @yield('layout-content')
+                                >
+                                    Редактировать профиль
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="{{ 'profile.reset' === Route::currentRouteName() ? 'active' : '' }}"
+                                    href="{{ route('profile.reset') }}"
+                                >
+                                    Сброс пароля
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="{{ 'profile.settings' === Route::currentRouteName() ? 'active' : '' }}"
+                                    href="{{ route('profile.settings') }}"
+                                >
+                                    Предпочтения
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="{{ 'profile.payment' === Route::currentRouteName() ? 'active' : '' }}"
+                                    href="{{ route('profile.payment') }}"
+                                >
+                                    Оплата
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="{{ 'profile.verification' === Route::currentRouteName() ? 'active' : '' }}"
+                                    href="{{ route('profile.verification') }}"
+                                >
+                                    Верификация
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="profile__body">
+                        @yield('layout-content')
+                    </div>
                 </div>
             </div>
         </div>

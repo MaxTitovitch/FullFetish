@@ -5,6 +5,8 @@
 @endsection
 
 @section('layout-content')
+    <h1 class="mb-4 small">Подтверждение пароля</h1>
+
     <div class="mb-4 text-sm text-gray-600">
         Пожалуйста, подтвердите свой пароль, прежде чем продолжить
     </div>
@@ -12,22 +14,30 @@
     <form method="POST" action="{{ route('password.confirm') }}">
         @csrf
 
-        <!-- Password -->
-        <div>
-            <x-input-label for="password" :value="'Пароль'" />
+        <div class="form-group mb-4">
+            <div class="password-changer">
+                <label for="password" class="mb-2">Пароль</label>
+                <div class="password-changer-button" data-id="password">
+                    <div class="to-hide">
+                        <i class="bi bi-eye-slash-fill"></i>
+                        <span>Скрыть</span>
+                    </div>
+                    <div class="to-show">
+                        <i class="bi bi-eye-fill"></i>
+                        <span>Показать</span>
+                    </div>
+                </div>
+            </div>
+            <input type="password" class="form-control" name="password" id="password" value="{{ old('password')}}" required autofocus autocomplete="password">
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            @if($errors->get('password')[0] ?? false)
+                <div id="passwordHelp" class="form-text text-danger mt-2">{{ $errors->get('password')[0] ?? '' }}</div>
+            @endif
         </div>
 
-        <div class="flex justify-end mt-4">
-            <x-primary-button>
-                Подтвердить
-            </x-primary-button>
+
+        <div class="flex items-center justify-end mb-4">
+            <button class="btn btn-custom btn-black no-border" type="submit">Подтвердить</button>
         </div>
     </form>
 

@@ -20,6 +20,15 @@ class ProfileController extends Controller
             'user' => $request->user(),
         ]);
     }
+    /**
+     * Display the user's reset password form.
+     */
+    public function reset(Request $request): View
+    {
+        return view('profile.reset', [
+            'user' => $request->user(),
+        ]);
+    }
 
     /**
      * Update the user's profile information.
@@ -56,5 +65,20 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+
+    public function settings()
+    {
+        return redirect()->route('profile.edit');
+    }
+
+    public function payment()
+    {
+        return redirect()->route('profile.edit');
+    }
+
+    public function verification()
+    {
+        return redirect()->route('profile.edit');
     }
 }

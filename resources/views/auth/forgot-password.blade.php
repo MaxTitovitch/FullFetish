@@ -6,8 +6,10 @@
 
 @section('layout-content')
 
+    <h1 class="mb-4 small">Забыли пароль?</h1>
+
     <div class="mb-4 text-sm text-gray-600">
-        Забыли пароль? Без проблем. Просто сообщите нам свой Email или Логин, и мы вышлем вам ссылку для сброса пароля, которая позволит вам задать новый
+        Просто сообщите нам свой Email или Логин, и мы вышлем вам ссылку для сброса пароля, которая позволит вам задать новый
     </div>
 
     <!-- Session Status -->
@@ -16,17 +18,17 @@
     <form method="POST" action="{{ route('password.email') }}">
         @csrf
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="'Email или Логин'" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        <div class="form-group mb-4">
+            <label for="email" class="mb-2">Имя пользователя или Адрес электронной почты</label>
+            <input type="text" class="form-control" name="email" id="email" value="{{ old('email')}}" required autofocus autocomplete="username">
+
+            @if($errors->get('email')[0] ?? false)
+                <div id="emailHelp" class="form-text text-danger mt-2">{{ $errors->get('email')[0] ?? '' }}</div>
+            @endif
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                Отправить
-            </x-primary-button>
+        <div class="flex items-center justify-end mb-4">
+            <button class="btn btn-custom btn-black no-border" type="submit">Отправить</button>
         </div>
     </form>
 

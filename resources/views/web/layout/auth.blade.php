@@ -1,21 +1,59 @@
-@extends('web.layout.layout')
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-@section('content')
-    <div class="auth font-sans text-gray-900 antialiased">
-        <div class="flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <link rel="icon" href="{{ asset('/img/icon.png') }}">
 
-            <div class="w-full sm:max-w-md px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-                <div class="w-full flex justify-center mb-6">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    @vite(['resources/scss/app.scss', 'resources/js/app.js'])
+
+    @section('title')
+        <title>Портал {{ config('app.name') }}</title>
+    @show
+</head>
+<body class="scroll">
+
+<main>
+    <div class="auth">
+        <div class="auth__sidebar">
+            <div class="auth__sidebar-carousel">
+                <div class="auth__photos">
+                    <div class="auth__photos-left">
+                        <img src="{{ asset('/img/main-photo-left.png') }}" alt="{{ config('app.name') }}">
+                    </div>
+                    <div class="auth__photos-center">
+                        <img src="{{ asset('/img/main-photo-center.png') }}" alt="{{ config('app.name') }}">
+                    </div>
+                    <div class="auth__photos-right">
+                        <img src="{{ asset('/img/main-photo-right.png') }}" alt="{{ config('app.name') }}">
+                    </div>
+                </div>
+                <a href="{{ route('home.index') }}" class="auth__sidebar-logo">
                     <img
-                            class="auth__logo"
-                            src="{{ asset('/img/logo.png') }}"
+                            src="{{ asset('/img/logo.svg') }}"
                             alt="{{ config('app.name') }}"
                     >
-                </div>
-
-                @yield('layout-content')
+                </a>
+                <div class="auth__back"></div>
             </div>
         </div>
+        <div class="auth__content">
+            @yield('layout-content')
+        </div>
     </div>
-@endsection
+</main>
+
+@yield('script')
+</body>
+</html>

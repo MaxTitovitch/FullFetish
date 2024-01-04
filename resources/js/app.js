@@ -9,23 +9,43 @@ Alpine.start();
 
 
 window.addEventListener("DOMContentLoaded", function() {
-
-  document.querySelectorAll('.home__video-preview').forEach(content => {
+  document.querySelectorAll('.home__faq .accordion-button').forEach(content => {
     content.addEventListener('click', function (event) {
-      document.querySelector('#videoPreview').classList.toggle('show')
-      document.querySelector('#videoContent').classList.toggle('show')
-      // document.querySelector('#videoButton').classList.toggle('show')
-      document.querySelector('.home__video-preview').classList.toggle('video')
+      event.target.closest('.accordion')
+        ?.querySelectorAll('.accordion-item')
+        .forEach(item => item.classList.remove('active'))
 
-      const video = document.querySelector('#videoContent')
-
-      if (video.paused) {
-        video.play();
-      } else {
-        video.pause();
-      }
+      event.target.closest('.accordion-item')?.classList.add('active')
     })
   })
+
+
+
+  document.querySelectorAll('.password-changer-button').forEach(content => {
+    content.addEventListener('click', function (event) {
+      const password = document.querySelector('#' + this.dataset?.id)
+      const currentType = password?.getAttribute('type');
+
+      password.setAttribute('type', currentType === 'text' ? 'password' : 'text')
+      this.classList.toggle('active')
+    })
+  })
+
+
+  document.querySelectorAll('#profileSave').forEach(content => {
+    content.addEventListener('click', function (event) {
+      document.querySelector('#profileForm')?.submit()
+    })
+  })
+
+  document.querySelectorAll('#passwordSave').forEach(content => {
+    content.addEventListener('click', function (event) {
+      document.querySelector('#passwordForm')?.submit()
+    })
+  })
+
+
+
 
   document.querySelectorAll('.custom-tab').forEach(tab => {
     tab.addEventListener('click', function (event) {

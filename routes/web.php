@@ -19,19 +19,23 @@ use App\Http\Controllers\HomeController;
 //    return view('welcome');
 //});
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/profile/reset', [ProfileController::class, 'reset'])->name('profile.reset');
+
+    Route::get('/settings', [ProfileController::class, 'settings'])->name('profile.settings');
+    Route::get('/payment', [ProfileController::class, 'payment'])->name('profile.payment');
+    Route::get('/verification', [ProfileController::class, 'verification'])->name('profile.verification');
 });
 
 require __DIR__.'/auth.php';
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/subscriptions', [HomeController::class, 'subscriptions'])->name('home.subscriptions');
+Route::get('/content', [HomeController::class, 'content'])->name('home.content');
 Route::get('/categories', [HomeController::class, 'categories'])->name('home.categories');
 Route::get('/models', [HomeController::class, 'models'])->name('home.models');
 Route::get('/faq', [HomeController::class, 'faq'])->name('home.faq');
